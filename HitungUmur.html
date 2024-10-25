@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Umur dan Tahun Lahir</title>
+    <style>
+        /* CSS untuk mempercantik tampilan */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            color: #333;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Penghitung Umur dan Tahun Lahir</h1>
+        
+        <!-- Form untuk menghitung umur berdasarkan tahun lahir -->
+        <label for="tahunLahir">Masukkan Tahun Lahir:</label>
+        <input type="number" id="tahunLahir" placeholder="Contoh: 1990">
+        <button class="btn" onclick="hitungUmur()">Hitung Umur</button>
+        
+        <!-- Form untuk menghitung tahun lahir berdasarkan umur -->
+        <label for="umur">Masukkan Umur:</label>
+        <input type="number" id="umur" placeholder="Contoh: 30">
+        <button class="btn" onclick="hitungTahunLahir()">Hitung Tahun Lahir</button>
+
+        <!-- Tempat menampilkan hasil -->
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Fungsi untuk menghitung umur berdasarkan tahun lahir
+        function hitungUmur() {
+            const tahunLahir = document.getElementById("tahunLahir").value;
+            const tahunSekarang = new Date().getFullYear();
+            if (tahunLahir) {
+                const umur = tahunSekarang - tahunLahir;
+                document.getElementById("result").innerText = `Umur Anda: ${umur} tahun`;
+            } else {
+                alert("Masukkan tahun lahir Anda");
+            }
+        }
+
+        // Fungsi untuk menghitung tahun lahir berdasarkan umur
+        function hitungTahunLahir() {
+            const umur = document.getElementById("umur").value;
+            const tahunSekarang = new Date().getFullYear();
+            if (umur) {
+                const tahunLahir = tahunSekarang - umur;
+                document.getElementById("result").innerText = `Tahun Lahir Anda: ${tahunLahir}`;
+            } else {
+                alert("Masukkan umur Anda");
+            }
+        }
+    </script>
+</body>
+</html>
